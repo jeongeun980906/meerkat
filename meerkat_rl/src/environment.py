@@ -9,6 +9,7 @@ from nav_msgs.msg import Odometry
 from std_srvs.srv import Empty
 from tf.transformations import euler_from_quaternion
 from goal import Respawn
+from data import scan as Check
 
 class Env():
     def __init__(self):
@@ -32,7 +33,7 @@ class Env():
         vel_msg.linear.z=0
         vel_msg.linear.y=0
         if action==0:
-            vel_msg.linear.x=0.
+            vel_msg.linear.x=0.2
             vel_msg.angular.z=-0.674218
         elif action==1:
             vel_msg.linear.x=0.2
@@ -73,9 +74,8 @@ class Env():
                     scan_range.append(0)
                 else:
                     scan_range.append(scan.ranges[i])
-        for data in scan_range:
-            if data<0.23 and data!=0:
-                done=True
+        check=Check(scan_range)
+        done=check.range()
         distance=round(math.sqrt(self.position_x**2+self.position_y**2),2)
         if distance<0.05:
             self.goal=True
@@ -86,7 +86,7 @@ class Env():
         distance=round(math.sqrt(self.position_x**2+self.position_y**2),2)
         origin=round(math.sqrt((self.goal_x+1.5)**2+(self.goal_y+1.5)**2),2)
         theta=math.degrees(math.atan2(self.position_y,self.position_x))/180
-        reward=(origin-distance)/origin+abs(theta)
+        reward=(origin-distance)/origin+abs(theta)/10
         if done:
             rospy.loginfo('done')
             reward=-150
@@ -106,7 +106,6 @@ class Env():
         scan_range, done = self.getState(data)
         point=[self.position_x,self.position_y]
         reward=self.Reward(done)
-        print(len(scan_range))
         return np.asarray(scan_range),np.asarray(point), reward, done
 
     def reset(self):
