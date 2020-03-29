@@ -77,7 +77,7 @@ class Env():
         check=Check(scan_range)
         done=check.range()
         distance=round(math.sqrt(self.position_x**2+self.position_y**2),2)
-        if distance<0.05:
+        if distance<0.1:
             self.goal=True
             done=True
         return scan_range,done
@@ -85,8 +85,9 @@ class Env():
     def Reward(self,done):
         distance=round(math.sqrt(self.position_x**2+self.position_y**2),2)
         origin=round(math.sqrt((self.goal_x+1.5)**2+(self.goal_y+1.5)**2),2)
-        theta=math.degrees(math.atan2(self.position_y,self.position_x))/180
-        reward=(origin-distance)/origin+abs(theta)/10
+        theta=math.degrees(math.atan2(self.position_y,self.position_x))/90
+        print(pow(2,5*(origin-distance)/origin),theta)
+        reward=pow(2,5*(origin-distance)/origin)-abs(theta)
         if done:
             rospy.loginfo('done')
             reward=-150

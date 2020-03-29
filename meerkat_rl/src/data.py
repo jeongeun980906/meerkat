@@ -11,7 +11,7 @@ class scan():
         done=False
         for index,scan_data in enumerate(self.data):
             if index<25.34:
-                if scan_data<(0.19*math.tan(math.radians(index))+0.03):
+                if scan_data<(0.19*math.tan(math.radians(index))+0.05):
                     done=True
                     break
             elif index<154.66 and index>25.43:

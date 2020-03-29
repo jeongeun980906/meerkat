@@ -11,6 +11,7 @@ from environment import Env
 from keras import Model
 from keras import layers,Input
 from keras.optimizers import Adam
+import matplotlib.pyplot as plt
 EPISODES = 5000
 
 class DQNAgent():
@@ -174,3 +175,5 @@ if __name__ == '__main__':
 
         if agent.epsilon > agent.epsilon_min:
             agent.epsilon *= agent.epsilon_decay
+    plt.plot(scores)
+    plt.show()
