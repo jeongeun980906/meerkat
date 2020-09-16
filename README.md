@@ -1,7 +1,7 @@
 # meerkat
 
 ============
-### carduino
+## carduino
 
 1. node serial_node2.py
 
@@ -33,7 +33,7 @@ servoang의 경우 90도를 기준으로 steering wheel을 꺾는다.
 위와 같지만 120정도 주어야지 천천히 후진한다. 
 
 ============
-### meerkat_camera
+## meerkat_camera
 
 **수식은 [KAsimov WiKi](https://kasimov.korea.ac.kr/dokuwiki/doku.php/activity/member/2020/meerkat) 참조**
 
@@ -69,7 +69,7 @@ rosrun meerkat_camera realworld_rl.py
 ~~멈추는 기능이 없으니 다 도착하면 그 순간에 수동으로 멈춰줘야한다. 코드 수정 필요~~
 
 ============
-### m2wr_description
+## m2wr_description
 
 ~~무언가 중간에 철자가 자주 틀렸다...~~
 ``` 
@@ -82,17 +82,25 @@ roslaunch m2wr_description spawn2.py
 /odom이라는 토픽으로 현재 위치의 추정치를 볼 수 있고 /cmd_vel로 움직일 수 있다. 
 
 ============
-### meerkat_rl
+## meerkat_rl
 
 **수식은 [KAsimov WiKi](https://kasimov.korea.ac.kr/dokuwiki/doku.php/activity/member/2020/meerkat) 참조**
 
 1. environment4.py, per-d3qn.py
-여러가지 버전이 있는데 시뮬레이터 상에서는 4가 가장 잘되었다.
+``` 
+rosrun meerkat_rl per-d3qn.py
+```
+
+실행전에 가제보를 키는 런치파일을 먼저 실행 하여야한다. 
+
+여러가지 버전이 있는데 시뮬레이터 상에서는 환경4가 가장 잘되었다. 
+input은 스캔 데이터와 로봇 좌표계에 대한 목표 위치의 좌표이다. action은 steerning angle이며 알고리즘은 PER-D3QN을 사용하였다.  
 여기서 action으로 주는 속도는, 칼만 필터 추정이 아닌 속도 측정 실험에 의한 결과 값이고 노이즈 또한 추가 하지 않았다. 
+자세한 수식과 결과는 위의 위키에 적혀있다. 
 
 ##########아직 수정 중###########
 
-### project_practice_1
+## project_practice_1
 
 원래는 숫자를 인식하여 정해진 호실의 방에 들어가는 것을 하기 위하여 숫자 인식 기능을 만들어 놓았다. 
 
