@@ -8,13 +8,12 @@
 ``` 
 rosrun carduino serial_node2.py
 ```
-
-실행시 자동으로 /dev/ttyACM1 아두이노로 새로운 로스 시리얼 노드가 만들어진다. 
-rosrun rosserial_python serial_node.py /dev/ttyACM0와 함께 사용 가능하다. 
+    실행시 자동으로 /dev/ttyACM1 아두이노로 새로운 로스 시리얼 노드가 만들어진다. 
+    rosrun rosserial_python serial_node.py /dev/ttyACM0와 함께 사용 가능하다. 
 
 2. imu.ino
-MPU 6050의 IMU정보를 아두이노로 받아서 로스로 publish 해준다. 
-String type으로 전달되며 토픽이름은 /chatter
+    MPU 6050의 IMU정보를 아두이노로 받아서 로스로 publish 해준다. 
+    String type으로 전달되며 토픽이름은 /chatter
 
 String data = " A " + AX + " B " + AY + " C " + AZ + " D " + GX + " E " + GY + " F " + GZ + " G " 형식이다. 
 
