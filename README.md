@@ -38,6 +38,9 @@ servoang의 경우 90도를 기준으로 steering wheel을 꺾는다.
 **수식은 [KAsimov WiKi](https://kasimov.korea.ac.kr/dokuwiki/doku.php/activity/member/2020/meerkat) 참조**
 
 1. camera_1.py camera_2.py
+``` 
+rosrun meerkat_camera camera_2.py
+```
 리얼센스 435i로 차량을 인식하여 world frame을 기준으로 로봇의 현재 x,y,yaw를 /position_kf 로 publish 한다.
 
 1버전은 수식을 그래도 쓴 것인데 무언가 안맞아서 2버전을 만들어서 맞을 때 까지 식을 수정하였다. 
@@ -46,12 +49,19 @@ servoang의 경우 90도를 기준으로 steering wheel을 꺾는다.
 차량의 앞(녹색) 차량의 뒤(노란색)을 각각 인식하여 중간 값을 x,y로 지정하고 yaw방향까지 인식해주었다.
 
 2. kalman_filter2.py
+``` 
+rosrun meerkat_camera kalman_filter2.py
+```
+
 순수하게 칼만 필터만 적용하여 필터 결과를 보기 위한 코드이다. velocity 또한 볼 수 있으므로 속도 측정하고 위치 정확도를 보는데에 활용하였다. 
 
 수식은 위키에 적어 놓았다. 미리 정해놓은 움직임에 따라 움직이고 process update하고 측정하고 measurement update하는 프로세스를 반복한다. 
 
 
 3. realworld_rl.py
+``` 
+rosrun meerkat_camera realworld_rl.py
+```
 시뮬레이터로 학습된 네비게이션 강화학습 알고리즘을 적용한 코드이다. 
 
 칼만 필터가 적용된 x,y,yaw 추정 치를 input 데이터로 활용한다. 
@@ -67,7 +77,9 @@ roslaunch m2wr_description spawn2.py
 ```
 
 시뮬레이터상의 학습을 위한 가제보 런치 파일이다. 
-프로젝트의 차량에 맞추어 제작하였으며 라이다 센서가 부착되어있고, /odom이라는 토픽으로 현재 위치의 추정치를 볼 수 있고 /cmd_vel로 움직일 수 있다. 
+프로젝트의 차량에 맞추어 제작하였으며 라이다 센서가 부착되어있다.
+
+/odom이라는 토픽으로 현재 위치의 추정치를 볼 수 있고 /cmd_vel로 움직일 수 있다. 
 
 ============
 ### meerkat_rl
