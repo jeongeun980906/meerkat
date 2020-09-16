@@ -1,0 +1,29 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "/home/jhmbabo/catkin_ws/devel/include/**",
+                "/opt/ros/melodic/include/**",
+                "/home/jhmbabo/catkin_ws/src/beginner_tutorials/include/**",
+                "/home/jhmbabo/catkin_ws/src/chapter_4_codes/diff_wheeled_robot_control/include/**",
+                "/home/jhmbabo/catkin_ws/src/racecar_simulator/include/**",
+                "/home/jhmbabo/catkin_ws/src/realsense-ros/realsense2_camera/include/**",
+                "/home/jhmbabo/catkin_ws/src/ros_tutorials_service/include/**",
+                "/home/jhmbabo/catkin_ws/src/turtlebot3_simulations/turtlebot3_fake/include/**",
+                "/home/jhmbabo/catkin_ws/src/turtlebot3_simulations/turtlebot3_gazebo/include/**",
+                "/home/jhmbabo/catkin_ws/src/turtlebot3/turtlebot3_slam/include/**",
+                "/usr/include/**"
+            ],
+            "name": "ROS",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu11",
+            "cppStandard": "gnu++14"
+        }
+    ],
+    "version": 4
+}

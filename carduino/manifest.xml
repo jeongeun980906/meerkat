@@ -1,0 +1,13 @@
+<package>
+  <description brief="carduino">
+
+     carduino
+
+  </description>
+  <author>user</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/carduino</url>
+  <depend package="rospy"/>
+
+</package>
