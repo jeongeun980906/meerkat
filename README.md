@@ -34,7 +34,7 @@ rosrun carduino serial_node2.py
 ============
 ## meerkat_camera
 
-**수식은 [KAsimov WiKi](https://kasimov.korea.ac.kr/dokuwiki/doku.php/activity/member/2020/meerkat) 참조**
+**수식은 [KAsimov WiKi](https://kasimov.korea.ac.kr/dokuwiki/doku.php/activity/public/2020/meerkat) 참조**
 
 1. camera_1.py camera_2.py
 ``` 
@@ -83,7 +83,7 @@ roslaunch m2wr_description spawn2.py
 ============
 ## meerkat_rl
 
-**수식은 [KAsimov WiKi](https://kasimov.korea.ac.kr/dokuwiki/doku.php/activity/member/2020/meerkat) 참조**
+**수식은 [KAsimov WiKi](https://kasimov.korea.ac.kr/dokuwiki/doku.php/activity/public/2020/meerkat) 참조**
 
 1. environment4.py, per-d3qn.py
 ``` 
